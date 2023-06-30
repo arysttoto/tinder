@@ -2,11 +2,11 @@ import Navbar from "./navbar";
 import styles from './AuthorizationPage.module.css'; 
 
 export default function Authorization() {
-  return (
+  return ( 
     <>
     <Navbar /> 
     <div className={styles.container}>
-      <div className={styles.box}>
+      <div className={styles.box}> 
         <div className={styles.spinner}></div>
         <h1>Authorization Page</h1>
         <form className={styles.form}>

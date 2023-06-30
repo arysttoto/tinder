@@ -3,11 +3,13 @@ import useScroll from "/lib/hooks/use-scroll";
 import MenuDropdown from "./burgerMenu";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect } from "react";
+
 
 export default function Navbar() {
-    const scrolled = useScroll(50);  
-
-    return (
+    const scrolled = useScroll(50); 
+    
+    return ( 
         <>
         <div    
         className={`fixed top-0 w-full ${  
@@ -24,8 +26,8 @@ export default function Navbar() {
               width="30"
               height="30"
               className="mr-2 rounded-sm transform rotate-180"
-            ></Image>
-            <p>Kinder</p>
+            ></Image> 
+            <p>Kinder</p> 
           </Link>      
           {/* items at right side */}
           <div className="right-corner flex items-center">
