@@ -4,7 +4,7 @@ import Authorize from "../components/authorizationPage";
 
 
 export default function AuthorizationPage() {
-    const [passedCaptcha, setPassedCaptcha] = useState(true); 
+    const [passedCaptcha, setPassedCaptcha] = useState(false); 
 
     const MazeGame = () => {
         const canvasRef = useRef(null);
