@@ -4,7 +4,7 @@ import Authorize from "../components/authorizationPage";
 
 
 export default function AuthorizationPage() {
-    const [passedCaptcha, setPassedCaptcha] = useState(false); 
+    const [passedCaptcha, setPassedCaptcha] = useState(true); 
 
     const MazeGame = () => {
         const canvasRef = useRef(null);
@@ -52,8 +52,9 @@ export default function AuthorizationPage() {
           drawRect(0, canvasRef.current.height - wh, canvasRef.current.width, wh, "green");
           drawRect(canvasRef.current.width - wh, 0, wh, canvasRef.current.height, "green");
         
-          // Draw the remaining obstacles
-          // ...
+          for (let i = 0; i < xy.length; i++) {
+            drawRect(xy[i][0], xy[i][1], wh, wh, "green");
+          }
         
           drawRect(x, y, wh, wh, "red");
         
@@ -71,6 +72,7 @@ export default function AuthorizationPage() {
             ctx.fillText("You won", canvasRef.current.width / 2 - 100, canvasRef.current.height / 2 - 40);
         
             showwinscreen = true;
+            setPassedCaptcha(true);
           }
         }
     
@@ -143,14 +145,16 @@ export default function AuthorizationPage() {
         }
     
         return (
-          <div>
-            <canvas ref={canvasRef} id="canvas"></canvas>
-            <div className="btn">
+          <>
+          <h1 className="text-center text-5xl">Quick check that you aren't a <span className="text-8xl">ROBOT</span></h1>
+          <div className="mt-10 flex items-center justify-center h-screen">
+            <canvas ref={canvasRef} className="flex" id="canvas"></canvas> 
+            <div className="btn">       
               <button id="leftBtn">Left</button>
               <button id="rightBtn">Right</button>
               <button id="upBtn">Up</button>
               <button id="downBtn">Down</button>
-            </div>
+            </div> 
         
             <style jsx>{`
               body {
@@ -177,15 +181,15 @@ export default function AuthorizationPage() {
               }
           
               .btn {
-                position: absolute;
                 margin: auto;
-                top: 0px;
-                left: 0px;
-                right: 0px;
+                margin-top: 50px;
+                margin-left: 0px;
+                margin-right: 0px;
                 text-align: center;
               }
             `}</style>
           </div>
+          </>
         );
       };
     
