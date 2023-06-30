@@ -35,13 +35,13 @@ export default function AuthorizationPage() {
           document.getElementById("upBtn").addEventListener("click", up);
           document.getElementById("downBtn").addEventListener("click", down);
         
-          return () => {
-            // Cleanup event listeners if necessary
-            document.getElementById("leftBtn").removeEventListener("click", left);
-            document.getElementById("rightBtn").removeEventListener("click", right);
-            document.getElementById("upBtn").removeEventListener("click", up);
-            document.getElementById("downBtn").removeEventListener("click", down);
-          };
+          // return () => {
+          //   // Cleanup event listeners if necessary
+          //   document.getElementById("leftBtn").removeEventListener("click", left);
+          //   document.getElementById("rightBtn").removeEventListener("click", right);
+          //   document.getElementById("upBtn").removeEventListener("click", up);
+          //   document.getElementById("downBtn").removeEventListener("click", down);
+          // };
         }, []);
     
         function draw() {
@@ -196,7 +196,7 @@ export default function AuthorizationPage() {
     return (
         <> 
         {
-            passedCaptcha ? <Authorize /> : <MazeGame />
+          passedCaptcha ? <Authorize /> : <MazeGame /> 
         }
         </>
     ); 
